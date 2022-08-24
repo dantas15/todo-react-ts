@@ -1,0 +1,25 @@
+.header {
+  padding: 7.2rem 0;
+
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-700);
+
+  gap: 0.8rem;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: bolder;
+  line-height: 4.8rem;
+}
+
+.firstLetters {
+  color: var(--blue);
+}
+
+.lastLetters {
+  color: var(--purple-dark);
+}
