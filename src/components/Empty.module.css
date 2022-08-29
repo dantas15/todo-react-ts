@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6.4rem 2.4rem;
+  gap: 1.6rem;
+
+  color: var(--gray-300);
+}
+
+.text {
+  text-align: center;
+  font-size: var(--font-size-big);
+}
+
+.boldText {
+  font-weight: 700;
+}

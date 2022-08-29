@@ -8,7 +8,7 @@
 }
 
 .form {
-  width: 73.6rem;
+  width: 100%;
   display: flex;
   flex-direction: row;
   gap: 0.8rem;
@@ -16,10 +16,15 @@
 
 .form input {
   width: 80%;
-  background: var(--gray-500);
-  border: 1px solid var(--gray-700);
   border-radius: var(--border-radius);
   padding: var(--font-size-big);
+  background: var(--gray-500);
+  border: 1px solid var(--gray-700);
+}
+
+.form input:focus {
+  outline: none;
+  border: 1px solid var(--purple-dark);
 }
 
 .form input::placeholder {
@@ -41,6 +46,12 @@
 
   border: none;
   border-radius: var(--border-radius);
+}
+
+.form button:hover,
+.form button:focus {
+  background: var(--blue);
+  cursor: pointer;
 }
 
 .form button span {
