@@ -1,13 +1,13 @@
 import './global.css';
 
 import { Header } from './components/Header';
+import { AddTask } from './components/AddTask';
 
 export function App() {
   return (
-    <div className="App">
+    <>
       <Header />
-    </div>
+      <AddTask />
+    </>
   );
 }
-
-export default App;
