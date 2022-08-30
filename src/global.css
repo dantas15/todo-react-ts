@@ -13,12 +13,19 @@
   --blue: #4ea8de;
   --blue-dark: #1e6f9f;
 
+  /* 
+    Same as var(--blue-dark) but with 20
+    (20% opacity) https://www.digitalocean.com/community/tutorials/css-hex-code-colors-alpha-values
+  */
+  --blue-dark-bg-opacity: #1e6f9f20;
+
   --danger: #e25858;
 
   --font-size-small: 1.2rem;
   --font-size-normal: 1.4rem;
   --font-size-big: 1.6rem;
 
+  --border-radius-small: 4px;
   --border-radius: 8px;
   --border-radius-big: 16px;
 }
@@ -27,6 +34,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+:focus {
+  outline: transparent;
+  box-shadow: 0 0 0 0 4px var(--blue);
 }
 
 html {

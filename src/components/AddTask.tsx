@@ -17,11 +17,11 @@ export function AddTask({ handleAddTask }: AddTaskProps) {
     const newTask: Task = {
       id: uuid(),
       title: title,
-      created_at: new Date(),
-      done_at: null,
+      created_at: Date.now(),
     };
 
     handleAddTask(newTask);
+    setTitle('');
   }
 
   function handleChangeTitle(event: ChangeEvent<HTMLInputElement>) {
