@@ -1,6 +1,6 @@
 .mainContent {
   margin: 0 auto;
-  width: 73.6rem;
+  max-width: 73.6rem;
 }
 
 .tasksWrapper {

@@ -28,6 +28,8 @@
   --border-radius-small: 4px;
   --border-radius: 8px;
   --border-radius-big: 16px;
+
+  --breakpoint-mobile: 768px;
 }
 
 * {

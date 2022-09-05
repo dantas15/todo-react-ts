@@ -30,7 +30,7 @@ export function AddTask({ handleAddTask }: AddTaskProps) {
 
   return (
     <div className={styles.wrapper}>
-      <form onSubmit={handleSubmit} className={styles.form}>
+      <form onSubmit={handleSubmit} className={styles.formWrapper}>
         <input
           type="text"
           value={title}

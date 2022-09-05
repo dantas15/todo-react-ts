@@ -1,66 +1,67 @@
 .wrapper {
   width: 100%;
-  height: 5.4rem;
-  margin-top: -2.7rem;
-
-  display: flex;
-  justify-content: center;
+  min-height: 5.4rem;
+  margin: -2.7rem auto 0;
 }
 
-.form {
+.formWrapper {
   width: 100%;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 80% 20%;
   gap: 0.8rem;
 }
 
-.form input {
-  width: 80%;
+@media (max-width: var(--breakpoint-mobile)) {
+  .formWrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.formWrapper input {
   border-radius: var(--border-radius);
   padding: var(--font-size-big);
   background: var(--gray-500);
   border: 1px solid var(--gray-700);
 }
 
-.form input:focus {
+.formWrapper input:focus {
   outline: none;
   border: 1px solid var(--purple-dark);
 }
 
-.form input::placeholder {
+.formWrapper input::placeholder {
   font-weight: 400;
   font-size: var(--font-size-big);
   color: var(--gray-300);
   line-height: 140%;
 }
 
-.form button {
-  width: 20%;
+.formWrapper button {
   background: var(--blue-dark);
 
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: var(--font-size-big);
+  padding: 1.6rem;
   gap: 0.8rem;
 
   border: none;
   border-radius: var(--border-radius);
 }
 
-.form button:hover,
-.form button:focus {
+.formWrapper button:hover,
+.formWrapper button:focus {
   background: var(--blue);
   cursor: pointer;
 }
 
-.form button span {
+.formWrapper button span {
   font-style: normal;
   font-weight: 700;
   line-height: 140%;
 }
 
-.form button svg {
+.formWrapper button svg {
   /* font-size: var(--font-size-big); */
   width: var(--font-size-big);
   height: var(--font-size-big);
