@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction, useEffect } from 'react';
 import { Task as TaskType } from '../interfaces/Task';
 import { AddTask } from './AddTask';
 import { Task } from './Task';
@@ -8,49 +7,36 @@ import { Empty } from './Empty';
 
 interface ListTaskProps {
   tasks: TaskType[];
-  setTasks: Dispatch<SetStateAction<TaskType[]>>;
+  handleUpdateOrCreateTask: (task: TaskType) => void;
+  handleRemoveTask: (taskId: string) => void;
 }
 
-export function ListTask({ tasks, setTasks }: ListTaskProps) {
-  function handleAddTask(newTask: TaskType) {
-    setTasks((state) => [...state, newTask]);
-  }
-
+export function ListTask({
+  tasks,
+  handleUpdateOrCreateTask,
+  handleRemoveTask,
+}: ListTaskProps) {
   function handleToggleTaskStatus(id: string) {
-    setTasks((state) => {
-      const taskToBeUpdated = state.find((task) => task.id === id);
+    const taskToBeUpdated = tasks.find((task) => task.id === id);
 
-      if (!taskToBeUpdated) {
-        // TODO Put some sort of notification here
-        return state;
-      }
+    if (!taskToBeUpdated) {
+      // TODO Put some sort of notification here
+      return;
+    }
 
-      return state.map((task) => {
-        if (task.id === id) {
-          const done_at = task.done_at ? undefined : Date.now();
-          return { ...task, done_at };
-        }
-        return task;
-      });
-    });
-  }
+    const updatedTask = {
+      ...taskToBeUpdated,
+      done_at: taskToBeUpdated.done_at ? undefined : Date.now(),
+    };
 
-  function handleRemoveTask(id: string) {
-    setTasks((state) => {
-      return state.reduce((acc, task) => {
-        if (task.id !== id) {
-          acc.push(task);
-        }
-        return acc;
-      }, [] as TaskType[]);
-    });
+    handleUpdateOrCreateTask(updatedTask);
   }
 
   const tasksCreated = tasks.length;
   const tasksCompleted = tasks.filter((task) => !!task.done_at).length;
   return (
     <main className={styles.mainContent}>
-      <AddTask handleAddTask={handleAddTask} />
+      <AddTask handleAddTask={handleUpdateOrCreateTask} />
       <div className={styles.tasksWrapper}>
         <section className={styles.info}>
           <span className={styles.infoCreated}>
