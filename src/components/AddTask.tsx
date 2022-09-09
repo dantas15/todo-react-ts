@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 import { Plus } from 'phosphor-react';
 import { v4 as uuid } from 'uuid';
 
@@ -14,6 +14,7 @@ export function AddTask({ handleAddTask }: AddTaskProps) {
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
+
     const newTask: Task = {
       id: uuid(),
       title: title,
@@ -25,7 +26,12 @@ export function AddTask({ handleAddTask }: AddTaskProps) {
   }
 
   function handleChangeTitle(event: ChangeEvent<HTMLInputElement>) {
+    event.target.setCustomValidity('');
     setTitle(event.target.value);
+  }
+
+  function handleOnInvalid(event: InvalidEvent<HTMLInputElement>) {
+    event.target.setCustomValidity('Please enter a task title');
   }
 
   return (
@@ -36,6 +42,8 @@ export function AddTask({ handleAddTask }: AddTaskProps) {
           value={title}
           onChange={handleChangeTitle}
           placeholder="Add a new task"
+          onInvalid={handleOnInvalid}
+          required
         />
         <button type="submit">
           <span>Add</span> <Plus />
